@@ -1,0 +1,13 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_ficha_socioeconomica,ficha.socioeconomica,model_ficha_socioeconomica,,1,1,1,1
+access_familiar,familiar,model_familiar,,1,1,1,1
+access_enfermedad,enfermedad,model_enfermedad,,1,1,1,1
+access_ayuda_tercera,ayuda.tercera,model_ayuda_tercera,,1,1,1,1
+access_familiar_ingresos,familiar.ingresos,model_familiar_ingresos,,1,1,1,1
+access_vehiculos,vehiculos,model_vehiculos,,1,1,1,1
+access_vivienda,vivienda,model_vivienda,,1,1,1,1
+access_mat_ingresos,mat.ingresos,model_mat_ingresos,,1,1,1,1
+access_mat_discapacidad,mat.discapacidad,model_mat_discapacidad,,1,1,1,1
+access_mat_enfermedad,mat.enfermedad,model_mat_enfermedad,,1,1,1,1
+access_mat_familia,mat.familia,model_mat_familia,,1,1,1,1
+access_mat_hogar,mat.hogar,model_mat_hogar,,1,1,1,1

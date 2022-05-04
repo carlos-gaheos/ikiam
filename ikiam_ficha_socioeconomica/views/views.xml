@@ -1,0 +1,498 @@
+<odoo>
+    <data>
+
+        <record id="ikiam_ficha_socioeconomica_form_view" model="ir.ui.view">
+            <field name="name">ficha.socioeconomica.form</field>
+            <field name="model">ficha.socioeconomica</field>
+            <field name="arch" type="xml">
+                <form string="Ficha Socioeconomica">
+                    <header>
+                        <!--                        <button name="change_state_checklist" type="object" states="abierto"-->
+                        <!-- class="oe_highlight" string="Confirmar">-->
+                        <!--                        </button>-->
+                        <field name="state" widget="statusbar"></field>
+                    </header>
+                    <sheet>
+                        <notebook>
+                            <page string="Información Personal del Estudiante">
+                                <group>
+                                    <group string="Datos Personales">
+                                        <field name="nombres"/>
+                                        <field name="apellidos"/>
+                                        <field name="cedula"/>
+                                        <field name="fecha_nacimiento"/>
+                                        <field name="edad"/>
+                                        <field name="genero"/>
+                                        <field name="sangre"/>
+                                    </group>
+                                    <group string="Lugar de nacimiento">
+                                        <field name="provincia"/>
+                                        <field name="canton"/>
+                                        <field name="parroquia"/>
+                                    </group>
+                                </group>
+                                <group>
+                                    <group string="Datos Discapacidad">
+                                        <field name="tipo_discapacidad"/>
+                                        <field name="porcentaje_discapacidad"/>
+                                        <field name="carnet_conadis"/>
+                                        <field name="fecha_nacimiento"/>
+                                        <field name="carnet_attachment"/>
+                                    </group>
+                                    <group string="Datos electronicos">
+                                        <field name="email_personal"/>
+                                        <field name="email_institucional"/>
+                                        <field name="celular"/>
+                                        <field name="tel_fijo"/>
+                                    </group>
+                                </group>
+
+                                <group string="Pueblos y nacionalidades">
+                                    <field name="etnia"/>
+                                    <field name="nacionalidad"/>
+                                    <field name="estado_civil"/>
+                                    <field name="estructura_familiar"/>
+                                </group>
+                                <group string="Familiares / Otros">
+                                    <field name="familiares_lines" nolabel="1" string="&#160;Familiaries">
+                                        <tree editable="bottom">
+                                            <field name="nombre"/>
+                                            <field name="cedula"/>
+                                            <field name="parentezco"/>
+                                            <field name="ingresos"/>
+                                        </tree>
+                                    </field>
+                                </group>
+                                <group string="Enfermedad">
+                                    <field name="enfermedad_lines" nolabel="1" string="&#160;¿Tiene usted una enfermedad catastrófica grave?">
+                                        <tree editable="bottom">
+                                            <field name="nombre"/>
+                                            <field name="observacion"/>
+                                            <field name="archivo"/>
+                                        </tree>
+                                    </field>
+                                </group>
+                            </page>
+                            <page string="Contacto de emergencia">
+                                <group>
+                                    <field name="contacto_emergencia"/>
+                                    <field name="dir_contacto_emergencia"/>
+                                    <field name="telf_contacto_emergencia"/>
+                                    <field name="cel_contacto_emergencia"/>
+                                    <field name="correo_contacto_emergencia"/>
+                                </group>
+                            </page>
+                            <page string="Datos académicos del estudiante">
+                                <group col="4">
+                                    <field name="colegio_anterior"/>
+                                    <field name="tipo_sostenimiento"/>
+                                </group>
+                                <group string="Ubicación del colegio" col="4">
+                                    <field name="pais_colegio"/>
+                                    <field name="provincia_colegio"/>
+                                    <field name="canton_colegio"/>
+                                    <field name="parroquia_colegio"/>
+                                </group>
+                                <group string="Otros Datos" col="4">
+                                    <field name="tipo_bachillerato"/>
+                                    <field name="fecha_graduacion"/>
+                                    <field name="calificacion"/>
+                                    <field name="puntaje_bachiller"/>
+                                </group>
+                                <group string="Adjuntos" col="4">
+                                    <field name="acta_grado"/>
+                                    <field name="abanderado" widget="boolean_toggle"/>
+                                    <field name="acta_abanderado"/>
+                                </group>
+                            </page>
+                            <page string="Datos domiciliarios">
+                                <group string="Lugar de procedencia" col="4">
+                                    <field name="pais_procedencia"/>
+                                    <field name="provincia_procedencia"/>
+                                    <field name="canton_procedencia"/>
+                                    <field name="parroquia_procedencia"/>
+                                    <field name="barrio_procedencia"/>
+                                    <field name="calles_procedencia"/>
+                                    <field name="casa_procedencia"/>
+                                    <field name="referencia_procedencia"/>
+                                </group>
+                                <group string="Lugar de domicilio en Napo" col="4">
+                                    <field name="pais_procedencian"/>
+                                    <field name="provincia_procedencian"/>
+                                    <field name="canton_procedencian"/>
+                                    <field name="parroquia_procedencian"/>
+                                    <field name="barrio_procedencian"/>
+                                    <field name="calles_procedencian"/>
+                                    <field name="casa_procedencian"/>
+                                    <field name="referencia_procedencian"/>
+                                </group>
+                            </page>
+                            <page string="Datos económicos">
+                                <group string="Financiamiento del estudio universitario y manuntención" col="4">
+                                    <field name="fondos_propios"/>
+                                    <field name="ayuda_padres"/>
+                                </group>
+                                <group string="Credito Educativo" col="6">
+                                    <field name="credito_educativo"/>
+                                    <field name="entidad_financiera"/>
+                                    <field name="monto_credito"/>
+                                </group>
+                                <group string="Datos Trabajo">
+                                    <field name="trabajo"/>
+                                    <field name="ocupacion"/>
+                                    <field name="nombre_empresa"/>
+                                    <field name="direccion_empresa"/>
+                                    <field name="remuneracion"/>
+                                </group>
+                                <group string="Cargas Familiar">
+                                    <field name="cabeza_familia"/>
+                                    <field name="personas_cargo"/>
+                                </group>
+                                <group string="Datos Bancarios">
+                                    <field name="ahorros"/>
+                                    <field name="cantidad_ahorros"/>
+                                    <field name="cantidad_ahorros"/>
+                                </group>
+                                <group string="Otros Datos Familiares">
+                                    <field name="parentezco_econo"/>
+                                    <field name="tiene_negocio"/>
+                                    <field name="tipo_negocio"/>
+                                </group>
+                                <group string="Ayuda de terceras personas">
+                                    <field name="ayudaterceros_lines" nolabel="1" string="&#160;Ayuda de terceras personas">
+                                        <tree editable="bottom">
+                                            <field name="nombre"/>
+                                            <field name="cedula"/>
+                                            <field name="ingresos"/>
+                                            <field name="fuente"/>
+                                        </tree>
+                                    </field>
+                                </group>
+                                <group string="Familiares o personas que generan ingresos para el sustento del hogar">
+                                    <field name="familiar_ingresos_lines" nolabel="1" string="&#160;Familiares o personas que generan ingresos para el sustento del hogar">
+                                        <tree editable="bottom">
+                                            <field name="nombre"/>
+                                            <field name="cedula"/>
+                                            <field name="ingresos"/>
+                                            <field name="fuente"/>
+                                        </tree>
+                                    </field>
+                                </group>
+                                <group string="Egresos mensuales del grupo familiar" col="4">
+                                    <field name="alimentacion"/>
+                                    <field name="arriendo"/>
+                                    <field name="transporte"/>
+                                    <field name="educacion"/>
+                                    <field name="servicios_basicos"/>
+                                    <field name="educacion"/>
+                                    <field name="vestuario"/>
+                                    <field name="otros_egresos"/>
+                                </group>
+                                <group string="Cuadro resumen:" col="6">
+                                    <field name="total_ingresos"/>
+                                    <field name="total_egresos"/>
+                                    <field name="saldo"/>
+                                </group>
+                            </page>
+                            <page string="Características de la vivienda del hogar">
+                                <group>
+                                    <field name="vivienda_es"/>
+                                    <field name="vivienda_tipo"/>
+                                    <field name="tipo_construccion"/>
+                                    <field name="ubicacion_vivienda"/>
+                                </group>
+                                <group string="Describa internamente la vivienda">
+                                    <group>
+                                        <field name="sala"/>
+                                        <field name="comedor"/>
+                                        <field name="cocina"/>
+                                        <field name="asadero"/>
+                                    </group>
+                                    <group>
+                                        <field name="cant_banos"/>
+                                        <field name="cant_dormitorios"/>
+                                    </group>
+                                </group>
+                                <group string="Menaje de hogar" col="4">
+                                    <field name="cocina_induccion" widget="boolean_toggle"/>
+                                    <field name="cocina_gas" widget="boolean_toggle"/>
+                                    <field name="cocineta" widget="boolean_toggle"/>
+                                    <field name="lavadora" widget="boolean_toggle"/>
+                                    <field name="secadora" widget="boolean_toggle"/>
+                                    <field name="refrigeradora" widget="boolean_toggle"/>
+                                    <field name="licuadora" widget="boolean_toggle"/>
+                                    <field name="microondas" widget="boolean_toggle"/>
+                                    <field name="equipo_sonido" widget="boolean_toggle"/>
+                                    <field name="tv_cable" widget="boolean_toggle"/>
+                                    <field name="directv" widget="boolean_toggle"/>
+                                    <field name="computador_escritorio" widget="boolean_toggle"/>
+                                    <field name="laptop_tiene" widget="boolean_toggle"/>
+                                    <field name="tablet_tiene" widget="boolean_toggle"/>
+                                    <field name="celular_tiene" widget="boolean_toggle"/>
+                                    <field name="cant_tv"/>
+                                    <field name="tv_smart" widget="boolean_toggle"/>
+                                    <field name="tcaint" widget="boolean_toggle"/>
+                                    <field name="radio" widget="boolean_toggle"/>
+                                    <field name="internet" widget="boolean_toggle"/>
+                                </group>
+                                <group string="Datos Internet" col="4">
+                                    <field name="operadora_internet"/>
+                                    <field name="tipo_acceso_internet"/>
+                                    <field name="cant_internet"/>
+                                    <field name="velc_internet"/>
+                                    <field name="disp_acceso_internet"/>
+                                    <field name="cant_estud"/>
+                                    <field name="cant_conect"/>
+                                </group>
+                                <group string="Servicios básicos que cuenta la vivienda" col="4">
+                                    <field name="electricidad"/>
+                                    <field name="agua_potable"/>
+                                    <field name="alcantarillado"/>
+                                    <field name="alumbrado"/>
+                                    <field name="convencional"/>
+                                </group>
+                            </page>
+                            <page string="Información patrimonial de la familia">
+                                <group string="Vehículos de la unidad familiar">
+                                    <field name="vehiculos_lines" nolabel="1" string="&#160;Vehículos de la unidad familiar">
+                                        <tree editable="bottom">
+                                            <field name="placa"/>
+                                            <field name="modelo"/>
+                                            <field name="marca"/>
+                                            <field name="tipo_vehiculo"/>
+                                            <field name="valor"/>
+                                        </tree>
+                                    </field>
+                                </group>
+                                <group string="Bienes inmuebles de la unidad familiar">
+                                    <field name="vivienda_lines" nolabel="1" string="&#160;Bienes inmuebles de la unidad familiar">
+                                        <tree editable="bottom">
+                                            <field name="pais"/>
+                                            <field name="provincia"/>
+                                            <field name="canton"/>
+                                            <field name="parroquia"/>
+                                            <field name="direccion"/>
+                                            <field name="anno"/>
+                                            <field name="valor"/>
+                                        </tree>
+                                    </field>
+                                </group>
+                            </page>
+                            <page string="Becas y otros">
+                                <group>
+                                    <field name="recibe_becas"/>
+                                    <field name="institu_bec"/>
+                                    <field name="monto_bec"/>
+                                    <field name="periodo"/>
+                                    <field name="eres_deportista"/>
+                                    <field name="certi_dept"/>
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers"/>
+                        <field name="activity_ids" widget="mail_activity"/>
+                        <field name="message_ids" widget="mail_thread" options="{'post_refresh': 'recipients'}"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <record id="ikiam_ficha_socioeconomica_tree_view" model="ir.ui.view">
+            <field name="name">ficha.socioeconomica.tree</field>
+            <field name="model">ficha.socioeconomica</field>
+            <field name="arch" type="xml">
+                <tree string="Ficha Socioeconomica" default_order="state">
+                    <field name="nombres"/>
+                    <field name="apellidos"/>
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="ikiam_ficha_socioeconomica_action_all">
+            <field name="name">Ficha Socioeconomica</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">ficha.socioeconomica</field>
+            <field name="binding_view_types">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_smiling_face">Crea Ficha Socioeconomica.
+                </p>
+            </field>
+        </record>
+
+        <menuitem id="menu_bienestar_universitario" name="Bienestar Universitario" sequence="100" web_icon="ikiam_ficha_socioeconomica,static/description/icon.jpeg"/>
+
+
+        <menuitem id="menu_becas" name="Becas" parent="menu_bienestar_universitario" sequence="1"/>
+
+        <menuitem id="menu_ikiam_ficha_socioeconomica" action="ikiam_ficha_socioeconomica_action_all" parent="menu_becas" sequence="1"/>
+
+        <menuitem id="menu_bu_config" name="Configuration" parent="menu_bienestar_universitario" sequence="50"/>
+
+        <menuitem id="menu_state_bu" action="base.action_country_state" parent="menu_bu_config" sequence="1"/>
+
+
+
+
+        <record id="view_res_country_state_inherit" model="ir.ui.view">
+            <field name="name">res.country.state.inherit</field>
+            <field name="model">res.country.state</field>
+            <field name="inherit_id" ref="base.view_country_state_tree"/>
+            <field name="arch" type="xml">
+                <field name="code" position="after">
+                    <field name="ponderacion" />
+                </field>
+            </field>
+        </record>
+
+
+
+
+         <record id="view_mat_ingresos_tree" model="ir.ui.view">
+            <field name="name">mat.ingresos.tree</field>
+            <field name="model">mat.ingresos</field>
+            <field name="arch" type="xml">
+                <tree string="Ingresos" editable="bottom">
+                    <field name="name"/>
+                    <field name="min_value"/>
+                    <field name="max_value" />
+                    <field name="ponderacion"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_mat_ingresos" model="ir.actions.act_window">
+            <field name="name">Ingresos</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">mat.ingresos</field>
+            <field name="view_id" ref="view_mat_ingresos_tree"/>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Create a Ingresos
+                </p><p>
+                    Ingresos
+                </p>
+            </field>
+        </record>
+
+        <menuitem id="menu_ingresos_bu" action="action_mat_ingresos" parent="menu_bu_config" sequence="1"/>
+
+
+
+        <record id="view_mat_discapacidad_tree" model="ir.ui.view">
+            <field name="name">mat.discapacidad.tree</field>
+            <field name="model">mat.discapacidad</field>
+            <field name="arch" type="xml">
+                <tree string="discapacidad" editable="bottom">
+                    <field name="name"/>                    
+                    <field name="ponderacion"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_mat_discapacidad" model="ir.actions.act_window">
+            <field name="name">discapacidad</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">mat.discapacidad</field>
+            <field name="view_id" ref="view_mat_discapacidad_tree"/>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Create a discapacidad
+                </p><p>
+                    discapacidad
+                </p>
+            </field>
+        </record>
+
+        <menuitem id="menu_discapacidad_bu" action="action_mat_discapacidad" parent="menu_bu_config" sequence="10"/>
+
+         <record id="view_mat_enfermedad_tree" model="ir.ui.view">
+            <field name="name">mat.enfermedad.tree</field>
+            <field name="model">mat.enfermedad</field>
+            <field name="arch" type="xml">
+                <tree string="enfermedad" editable="bottom">
+                    <field name="name"/>                    
+                    <field name="ponderacion"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_mat_enfermedad" model="ir.actions.act_window">
+            <field name="name">enfermedad</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">mat.enfermedad</field>
+            <field name="view_id" ref="view_mat_enfermedad_tree"/>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Create a enfermedad
+                </p><p>
+                    enfermedad
+                </p>
+            </field>
+        </record>
+
+        <menuitem id="menu_enfermedad_bu" action="action_mat_enfermedad" parent="menu_bu_config" sequence="20"/>
+
+
+         <record id="view_mat_familia_tree" model="ir.ui.view">
+            <field name="name">mat.familia.tree</field>
+            <field name="model">mat.familia</field>
+            <field name="arch" type="xml">
+                <tree string="familia" editable="bottom">
+                    <field name="name"/>                    
+                    <field name="ponderacion"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_mat_familia" model="ir.actions.act_window">
+            <field name="name">familia</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">mat.familia</field>
+            <field name="view_id" ref="view_mat_familia_tree"/>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Create a familia
+                </p><p>
+                    familia
+                </p>
+            </field>
+        </record>
+
+        <menuitem id="menu_familia_bu" action="action_mat_familia" parent="menu_bu_config" sequence="30"/>
+
+         <record id="view_mat_hogar_tree" model="ir.ui.view">
+            <field name="name">mat.hogar.tree</field>
+            <field name="model">mat.hogar</field>
+            <field name="arch" type="xml">
+                <tree string="hogar" editable="bottom">
+                    <field name="name"/>                    
+                    <field name="ponderacion"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_mat_hogar" model="ir.actions.act_window">
+            <field name="name">hogar</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">mat.hogar</field>
+            <field name="view_id" ref="view_mat_hogar_tree"/>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Create a hogar
+                </p><p>
+                    hogar
+                </p>
+            </field>
+        </record>
+
+        <menuitem id="menu_hogar_bu" action="action_mat_hogar" parent="menu_bu_config" sequence="40"/>
+
+
+
+    </data>
+</odoo>
