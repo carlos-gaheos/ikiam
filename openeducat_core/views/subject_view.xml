@@ -31,10 +31,29 @@
                             <field name="name"/>
                             <field name="code"/>
                             <field name="type"/>
-                            <field name="subject_type"/>
+                            <field name="subject_type"/>                            
+                            <field name="hours_practice" attrs="{'invisible': [('type', '=', 'theory')]}"/>
+                            <field name="hours_theory" attrs="{'invisible': [('type', '=', 'practical')]}"/>
+                            <field name="hours_total"/>
                             <field name="grade_weightage"/>
+                            <field name="academic_term_id"/>
                             <field name="department_id" groups="openeducat_core.group_multi_department"/>
+                            <field name="subject_requirements_ids" widget="many2many_tags"/>
                         </group>
+
+                        
+                        <notebook>
+                            <page name="course" string="Cursos">
+                                <field name="course_subject_ids" />
+                            </page>
+                        </notebook>
+                            <!-- <field name="course_subject_ids">
+                                <tree>
+                                    <field name="name"/>
+                                </tree>
+                            </field>>                                -->
+                                                    
+                       
                     </sheet>
                     <div class="oe_chatter">
                         <field name="message_follower_ids" widget="mail_followers" groups="base.group_user"/>

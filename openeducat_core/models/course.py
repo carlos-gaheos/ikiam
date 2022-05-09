@@ -36,10 +36,10 @@ class OpCourse(models.Model):
          ('CWA', 'CWA'), ('CCE', 'CCE')],
         'Evaluation Type', default="normal", required=True)
     subject_ids = fields.Many2many('op.subject', string='Subject(s)')
-    max_unit_load = fields.Float("Maximum Unit Load")
+    max_unit_load = fields.Float("Total Creditos")
     min_unit_load = fields.Float("Minimum Unit Load")
     department_id = fields.Many2one(
-        'op.department', 'Department',
+        'op.department', 'Facultad',
         default=lambda self:
         self.env.user.dept_id and self.env.user.dept_id.id or False)
     active = fields.Boolean(default=True)

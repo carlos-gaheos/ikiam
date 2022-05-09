@@ -29,7 +29,7 @@ class OpSubject(models.Model):
 
     name = fields.Char('Name', size=128, required=True)
     code = fields.Char('Code', size=256, required=True)
-    grade_weightage = fields.Float('Grade Weightage')
+    grade_weightage = fields.Float('Creditos')
     type = fields.Selection(
         [('theory', 'Theory'), ('practical', 'Practical'),
          ('both', 'Both'), ('other', 'Other')],
@@ -38,10 +38,25 @@ class OpSubject(models.Model):
         [('compulsory', 'Compulsory'), ('elective', 'Elective')],
         'Subject Type', default="compulsory", required=True)
     department_id = fields.Many2one(
-        'op.department', 'Department',
+        'op.department', 'Facultad',
         default=lambda self:
         self.env.user.dept_id and self.env.user.dept_id.id or False)
     active = fields.Boolean(default=True)
+
+    hours_practice = fields.Integer('Horas de Practica')
+    hours_theory = fields.Integer('Horas de Teoría')
+    hours_total = fields.Char(compute='_compute_total_hours', string='Total de Horas')
+    academic_term_id = fields.Many2one('op.academic.term', string='Semestre')
+
+    subject_requirements_ids = fields.Many2many('op.subject','op_subject_rel','id_subject','id_pre', string='Pre Requisitos')
+   
+    course_subject_ids = fields.Many2many('course.subject','course_subject_rel','id_subject','id_course_subject', string='Cursos por Asignatura')
+
+    @api.depends('hours_practice','hours_theory')
+    def _compute_total_hours(self):
+        for rec in self:
+            rec.hours_total = rec.hours_practice + rec.hours_theory
+
 
     _sql_constraints = [
         ('unique_subject_code',

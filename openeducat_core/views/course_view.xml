@@ -35,8 +35,8 @@
                         <group colspan="4" col="4" name="main">
 
                             <field name="evaluation_type"/>
-                            <field name="parent_id"/>
-                            <field name="min_unit_load"/>
+                            <!-- <field name="parent_id"/> -->
+                            <!-- <field name="min_unit_load"/> -->
                             <field name="max_unit_load"/>
                             <field name="department_id" groups="openeducat_core.group_multi_department"/>
                         </group>
